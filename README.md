@@ -25,7 +25,7 @@ This application allows users to save lists of tasks, meetings or anything else 
 ![alt text](Assets/images/calendar2.png)
 ![alt text](Assets/images/calendar1.png)
 
-[Check Out The Full Page](https://ianfletcher314.github.io/JSquiz/)
+[Check Out The Full Page](https://ianfletcher314.github.io/DailyCalendar/)
 
 ## Credits
 
