@@ -1,13 +1,13 @@
 // this is the section where I create my variables
 var savedItems = {}
 var currentDayAndTime = moment().format('LLL');
-console.log(currentDayAndTime)
+// console.log(currentDayAndTime)
 // This is the array where todos can be saved
 var toDoArray = []
 toDoArray[9] = ""
 toDoArray.fill("")
 var isItSaved = true
-console.log(isItSaved)
+// console.log(isItSaved)
 if (isItSaved == true){
     var toDoArrayRaw = window.localStorage.getItem("toDoArray")
     if (!!toDoArrayRaw){
@@ -26,9 +26,9 @@ function startUpFunction(){
     // to save toDo items
     for (var i = 8; i < 18; i++) {
         let plannerTimes = moment(i, 'H').format('HH');
-        console.log(plannerTimes)
+        // console.log(plannerTimes)
         var currentTime = moment().format('HH')
-        console.log(currentTime)
+        // console.log(currentTime)
         let plannerTimesToShowUser = moment(i, 'H').format('h a');
         var hourTr = document.createElement("tr")
 
@@ -44,7 +44,7 @@ function startUpFunction(){
         toDoTextArea.classList.add("form-control")
         // this puts any saved items into the text fields they were saved to
         if (isItSaved == true){
-            console.log(toDoArray[i-8])
+            // console.log(toDoArray[i-8])
             toDoTextArea.innerHTML = toDoArray[i-8]
         }
         toDoTextArea.setAttribute("rows","1")
@@ -63,7 +63,7 @@ function startUpFunction(){
 
         // This puts color classes depending on time of day
         if (plannerTimes == currentTime){
-            console.log("same time")
+            // console.log("same time")
             hourTr.classList.add("present")
         }
         if (plannerTimes > currentTime){
@@ -72,7 +72,7 @@ function startUpFunction(){
         if (plannerTimes < currentTime){
             hourTr.classList.add("past")
         }
-        console.log(hourTr)
+        // console.log(hourTr)
         hourRows.appendChild(hourTr)
 
     }
@@ -80,21 +80,21 @@ function startUpFunction(){
     // this is an event listener for all of the save buttons which saves all of the writen items into an array
     document.querySelectorAll('.btn').forEach(item => {
         item.addEventListener('click', event => {
-            console.log(event)
+            // console.log(event)
             var everyTextElement = $( ".form-control" )
-            console.log(event)
+            // console.log(event)
             // here is where we need to make the information they inputed for ToDo save into the correct hour slot
             for (let i = 0; i < everyTextElement.length; i++) {
                 // this sets variable text to the innerHTML of the textarea elements saving items into an array
                 var text = everyTextElement[i].value;
-                console.log(text, "is my text")
+                // console.log(text, "is my text")
                 toDoArray[i]=text
             } 
             // this clears local storage and saves the new array into local storage so it can be retrieved on reload and inputed into
             // the text array boxes
             window.localStorage.clear("toDoArray")
-            console.log(everyTextElement)
-            console.log(toDoArray)
+            // console.log(everyTextElement)
+            // console.log(toDoArray)
             isItSaved = true
             window.localStorage.setItem("toDoArray",JSON.stringify(toDoArray))
             window.localStorage.setItem("isItSaved",true)
